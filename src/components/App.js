@@ -1,11 +1,12 @@
 import React, { useReducer, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Event from "./Event";
 // indexのインポートはindexの部分を省略可
 import reducer from "../reducers";
 
 const App = () => {
-  // 状態遷移をさせたい時にdispatchを呼ぶ,引数にはactionを渡す
+  // 状態遷移をさせたい時にdispatchを呼ぶ,引数には少なくともactionを渡す
   const [state, dispatch] = useReducer(reducer, []);
 
   const [title, setTitle] = useState("");
@@ -65,6 +66,12 @@ const App = () => {
             <th></th>
           </tr>
         </thead>
+        <tbody>
+          {state.map((event, index) => (
+            // event, dispatchを受け渡し
+            <Event key={index} event={event} dispatch={dispatch} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
