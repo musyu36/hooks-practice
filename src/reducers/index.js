@@ -11,7 +11,7 @@ const events = (state = [], action) => {
     case "DELETE_EVENT":
       //   渡されてきたid(削除したいid)以外のイベントをfilterで抽出して返す
       return state.filter((event) => event.id !== action.id);
-    case "DELETE_ALL_EVENT":
+    case "DELETE_ALL_EVENTS":
       return [];
     default:
       return state;
