@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CREATE_EVENT, DELETE_ALL_EVENTS } from "../actions";
+import AppContext from "../contexts/AppContext";
 
 //親コンポーネントから渡されるstate, dispatchを使用
-const EventForm = ({ state, dispatch }) => {
+const EventForm = () => {
+  // contextによる,App.jsからの値の受け取り
+  const { state, dispatch } = useContext(AppContext);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Event from "./Event";
+import AppContext from "../contexts/AppContext";
 
-const Events = ({ state, dispatch }) => {
+const Events = () => {
+  // contextによる,App.jsからの値の受け取り
+  const { state } = useContext(AppContext);
+
   return (
     <>
       <h4>イベント一覧</h4>
@@ -17,7 +21,7 @@ const Events = ({ state, dispatch }) => {
         <tbody>
           {state.map((event, index) => (
             // event, dispatchを受け渡し
-            <Event key={index} event={event} dispatch={dispatch} />
+            <Event key={index} event={event} />
           ))}
         </tbody>
       </table>

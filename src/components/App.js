@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EventForm from "./EventForm";
 import Events from "./Events";
 import reducer from "../reducers";
+import AppContext from "../contexts/AppContext";
 // indexのインポートはindexの部分を省略可
 // import reducer from "../reducers/index.js";
 
@@ -12,11 +13,13 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
-    <div className="container-fluid">
-      {/* state と dispatch を渡す */}
-      <EventForm state={state} dispatch={dispatch} />
-      <Events state={state} dispatch={dispatch} />
-    </div>
+    // contextによる値の受け渡し
+    <AppContext.Provider value={{ state, dispatch }}>
+      <div className="container-fluid">
+        <EventForm />
+        <Events />
+      </div>
+    </AppContext.Provider>
   );
 };
 
