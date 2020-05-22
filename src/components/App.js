@@ -10,6 +10,7 @@ import AppContext from "../contexts/AppContext";
 
 const App = () => {
   // 状態遷移をさせたい時にdispatchを呼ぶ,引数には少なくともactionを渡す
+  // useReducer(reducer, 管理するデータ(今回はイベント一覧))
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
