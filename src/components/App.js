@@ -11,6 +11,7 @@ import AppContext from "../contexts/AppContext";
 const App = () => {
   const initialState = {
     events: [],
+    operationLogs: [],
   };
 
   // 状態遷移をさせたい時にdispatchを呼ぶ,引数には少なくともactionを渡す

@@ -1,0 +1,20 @@
+// ログ関係のreducer
+import { ADD_OPERATION_LOG, DELETE_ALL_OPERATION_LOGS } from "../actions";
+
+const operationLogs = (state = [], action) => {
+  switch (action.type) {
+    case ADD_OPERATION_LOG:
+      const operationLog = {
+        description: action.description,
+        operateAt: action.operatedAt,
+      };
+      //ログの先頭に新規ログを追加して返す
+      return [operationLog, ...state];
+    case DELETE_ALL_OPERATION_LOGS:
+      return [];
+    default:
+      return [];
+  }
+};
+
+export default operationLogs;
